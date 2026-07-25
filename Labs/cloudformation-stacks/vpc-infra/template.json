@@ -1,0 +1,46 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "This template will create a VPC with public and private subnets, an Internet Gateway, and the necessary route tables.",
+
+  "Parameters": {
+    "VpcCidr": {
+      "Type": "String",
+      "Default": "10.0.0.0/16"
+    },
+    "vpcname": {
+      "Type": "String",
+      "Default": "myVPC"
+    }
+  },
+
+ "Resources": {
+        "myVPC":{
+           "Type" : "AWS::EC2::VPC",
+           "Properties" : {
+               "CidrBlock" : { "Ref": "VpcCidr" },
+               "EnableDnsSupport" : "true",
+               "EnableDnsHostnames" : "true",
+               "Tags" : [ 
+                   {"Key" : "stack", "Value" : "development"},
+                   {"Key" : "Name", "Value" : { "Ref": "vpcname" }}
+               ]
+           }
+        },
+        "myinternetGateway": {
+            "Type": "AWS::EC2::InternetGateway",
+            "Properties": {
+                "Tags": [
+                    {"Key": "stack", "Value": "development"},
+                    {"Key": "Name", "Value": "myInternetGateway"}
+                ]
+            }
+        },
+        "myVPCGatewayAttachment": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "VpcId": { "Ref": "myVPC" },
+                "InternetGatewayId": { "Ref": "myinternetGateway" }
+            }
+        }
+    }
+}
