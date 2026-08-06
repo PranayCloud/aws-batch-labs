@@ -1,0 +1,5 @@
+Hello Students,
+
+Welcome to AWS AI practiotioner Class.
+
+Today we will learn how to use Amazon Polly.
