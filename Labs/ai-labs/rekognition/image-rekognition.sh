@@ -11,7 +11,7 @@
 BUCKET=$1
 FILE=$2
 OPERATION=$3
-REGION="ap-south-1"
+REGION="us-east-1"
 
 # Validate inputs
 if [ $# -ne 3 ]; then
