@@ -10,7 +10,7 @@
 
 BUCKET=$1
 FILE=$2
-REGION="ap-south-1"
+REGION="us-east-1"
 
 # Validate inputs
 if [ $# -ne 2 ]; then

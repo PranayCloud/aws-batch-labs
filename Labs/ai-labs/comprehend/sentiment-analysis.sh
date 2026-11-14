@@ -1,7 +1,7 @@
 #!/bin/bash
 
 aws comprehend detect-sentiment \
-    --text "I hate programming in Python!" \
+    --text "$1" \
     --language-code "en" \
-    --region ap-south-1 \
+    --region us-east-1 \
     --output text
